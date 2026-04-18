@@ -5,7 +5,7 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt
+
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
@@ -140,7 +140,7 @@ with tab1:
 
     if "study_hours" in filtered_df.columns and "final_exam_score" in filtered_df.columns:
         fig, ax = plt.subplots()
-        ax.scatter(filtered_df["study_hours"], filtered_df["final_exam_score"])
+        st.scatter_chart(filtered_df[["attendance_rate", "final_exam_score"]])
         ax.set_xlabel("Study Hours")
         ax.set_ylabel("Final Exam Score")
         ax.set_title("Study Hours vs Final Exam Score")
